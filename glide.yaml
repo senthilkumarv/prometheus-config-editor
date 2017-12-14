@@ -1,0 +1,3 @@
+package: prometheus-config-editor
+import:
+- package: github.com/gin-gonic/gin

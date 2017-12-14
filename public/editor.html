@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CodeMirror: YAML mode</title>
+    <link rel="stylesheet" href="/public/css/docs.css">
+    <link rel="stylesheet" href="/public/css/codemirror.css">
+    <script src="/public/js/codemirror.js"></script>
+    <script src="/public/js/yaml.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/lint.css" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
+    <script src="/public/js/lint.js" crossorigin="anonymous"></script>
+    <script src="/public/js/js-yaml.min.js" crossorigin="anonymous"></script>
+    <script src="/public/js/yaml-lint.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-10"><p class="h3">Prometheus Configuration</p></div>
+        <div class="col-2">
+            <button type="button" class="btn btn-primary btn-sm" id="save-config">Save</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form lpformnum="1">
+                <textarea id="code" name="code" style="display: none;"></textarea>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resultModalLabel">Status</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                Details
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="apply-config-change">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="public/js/editor.js"></script>
+</body>
+</html>
