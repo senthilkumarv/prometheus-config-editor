@@ -1,8 +1,8 @@
-hash: 12276217d5ef194e00572f779bbfe3840c17c64985dcedd38ab1f6a54bec1e6d
-updated: 2017-12-13T18:57:26.374357-05:00
+hash: 0cc746a853597755316bc296b513497d4344648bca49088ce828d34e86fb2c62
+updated: 2017-12-15T15:34:32.991042-05:00
 imports:
 - name: github.com/aws/aws-sdk-go
-  version: d41099e55d33fd32290ab6223bfdf83da8693d68
+  version: 00d6698aa720deeb3e691e043eb1599bacc28d1d
   subpackages:
   - aws
   - aws/awserr
@@ -27,6 +27,8 @@ imports:
   - private/protocol/rest
   - private/protocol/xml/xmlutil
   - service/sts
+- name: github.com/gin-contrib/gzip
+  version: ce345a8285089c0917000e9ce23e6768a60ad7bc
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
 - name: github.com/gin-gonic/gin
@@ -49,7 +51,7 @@ imports:
   subpackages:
   - model
 - name: github.com/prometheus/prometheus
-  version: b5c30090b9d2ae80e0bc7b40e8c980627e304276
+  version: 9083d41d3a788f750d520a3975dced39644471a9
   subpackages:
   - config
 - name: github.com/ugorji/go
