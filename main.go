@@ -9,6 +9,9 @@ import (
 	"github.com/prometheus/prometheus/config"
 	"os"
 	"net/url"
+	"mime"
+	"path/filepath"
+	"strings"
 )
 
 var prometheusPath = os.Getenv("PROMETHEUS_PATH")
@@ -25,13 +28,32 @@ func main() {
 	authorized := router.Group("/", gin.BasicAuth(gin.Accounts{
 		"admin": "admin123",
 	}))
-	authorized.StaticFS("/public", http.Dir("public"))
+	authorized.GET("/public/*file", staticFilePathHandler)
 	authorized.StaticFile("/load", prometheusConfigFile)
-	authorized.StaticFile("/favicon.ico", "./public/favicon.ico")
-	authorized.StaticFile("/", "./public/editor.html")
+	authorized.GET("/favicon.ico", staticFileHandler("favicon.ico"))
+	authorized.GET("/", staticFileHandler("editor.html"))
 	authorized.POST("/save", saveConfig)
 	authorized.POST("/apply", applyConfig)
 	router.Run(":8000")
+}
+
+func serveStatic(context *gin.Context, fileName string) {
+	bytes, err := Asset(strings.Replace(fileName, "/", "", 1))
+	if err != nil {
+		context.AbortWithError(404, err)
+		return
+	}
+	context.Data(200, mime.TypeByExtension(filepath.Ext(fileName)), bytes)
+}
+
+func staticFileHandler(fileName string) gin.HandlerFunc {
+	return func(context *gin.Context) {
+		serveStatic(context, fileName)
+	}
+}
+
+func staticFilePathHandler(context *gin.Context) {
+	serveStatic(context, context.Param("file"))
 }
 
 func throwError(message string, err error) gin.H  {

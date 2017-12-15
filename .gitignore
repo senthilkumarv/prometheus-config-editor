@@ -2,3 +2,4 @@ vendor/*
 editor
 .idea
 backup
+bindata.go
