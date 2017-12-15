@@ -1,4 +1,4 @@
-all: deps build-debug run
+all: deps build-release
 
 .PHONY: deps
 deps:
