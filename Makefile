@@ -5,11 +5,11 @@ deps:
 	$(GOPATH)/bin/glide install
 
 .PHONY: build-debug
-build:
+build-debug:
 	$(GOPATH)/bin/go-bindata -debug -prefix public public/... && go build -o editor .
 
 .PHONY: build-release
-build-prod:
+build-release:
 	$(GOPATH)/bin/go-bindata -prefix public public/... && GOOS=linux go build -o editor .
 
 .PHONY: run

@@ -1,8 +1,13 @@
 language: go
-
 go:
-  - 1.9.2
-
+- 1.9.2
 before_install:
-  - curl https://glide.sh/get | sh
-  - go get -u github.com/jteeuwen/go-bindata/...
+- curl https://glide.sh/get | sh
+- go get -u github.com/jteeuwen/go-bindata/...
+deploy:
+  provider: releases
+  api_key:
+    secure: oFUn7K540h0ITxs12fdvG1xQrlDiDhVeoaeEoruTvQDfe9x9LIhcPsrSW81Zv+odj0HCAag25DsHPN/8XnNM3wbhy4ixtYHGGS42GYNv3s5FnPCb69Hl0Z3QaKGDdMywxGqjphFd1JOCZ1P924LkFSS/QfmfZ0+fhuq2mNi2Ib6IqsnoD0YGby48bKeQ95qpJY5p/0RVHEJoCP3dPN4a/rHT5y7+oAsIn2Gt03E/Kt9Z4RDJcgPcIZ66RPfayNYWvgEKEKB2N3B9DGT+Uodno3DUXFfZVreozrU/BRzNDw7zX1nx7zFCMeepsAx/EqoHFydFeGjekTmvzroPpV3sPJ93mbfoMq6fO/KauHDJGhcQ1R5wCDWo+n300fAy6vPbNrL3DAZAvi3b4wixAywpghZ6otoA9OV1oOSZgxDuWwF50oGrcZX953o4FRRZG+mTIERdxhYhgliL24dJqyOkgnkP7jd63wvP6yASdQQLqQPQlQQJ/PTf518e96PlfqDkGMQeKopJDZ6P8iBOKVobzRbi1zOL0LI9uSGDEw39onR+t0MaCe8Z3wKLrPOVLgq9KArWCngLuHhMaVVZFqCxROLGP6a1RaaU7yuFpjjTVWe/KHl4U8UwKoscMUpBppnnKWzTn8oUpqXD2hfABWZCkvxEdJy2dwenQFI1lx37w80=
+  file: editor
+  on:
+    repo: senthilkumarv/prometheus-config-editor
